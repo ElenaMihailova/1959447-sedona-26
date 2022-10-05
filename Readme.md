@@ -6,7 +6,7 @@
 ---
 
 <img src="https://user-images.githubusercontent.com/96042722/194114790-10d83b5a-bded-4e3d-a8b1-7507be23b248.svg" width="50" height="50" alt="map icon"/>
-<a href=" https://elenamihailova.github.io/1959447-sedona-26/"> Click here </a>
+<a href="https://elenamihailova.github.io/1959447-sedona-26/"> Click here </a>
 
 
 ---
