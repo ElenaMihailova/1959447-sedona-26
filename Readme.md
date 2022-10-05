@@ -6,9 +6,9 @@
 ---
 
 
-  <img align="center" src="https://user-images.githubusercontent.com/96042722/194114790-10d83b5a-bded-4e3d-a8b1-7507be23b248.svg" width="50px" height="50px"
+  <img align="center" src="https://user-images.githubusercontent.com/96042722/194167993-0a79e250-35b2-4b05-be85-9f9ce42b506d.svg" width="100px" height="100px"
        alt="map icon"/>
-  <a align="center" href="https://elenamihailova.github.io/1959447-sedona-26/"> Click here </a>
+  <a href="https://elenamihailova.github.io/1959447-sedona-26/"> Click here </a>
 
 ---
 
