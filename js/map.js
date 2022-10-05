@@ -1,0 +1,1 @@
+const map=L.map("map").setView({lat:36.6205,lng:29.1141},10);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);const mainPinIcon=L.icon({iconUrl:"img/map-marker.svg",iconSize:[27,27],iconAnchor:[27,13]}),mainPinMarker=L.marker({lat:36.6205,lng:29.1141},{icon:mainPinIcon});mainPinMarker.addTo(map);
