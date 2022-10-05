@@ -1,37 +1,36 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import less from 'gulp-less';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
-import rename from 'gulp-rename';
-import csso from 'postcss-csso';
-import svgstore from 'gulp-svgstore';
-import squoosh from 'gulp-libsquoosh';
-import svgo from 'gulp-svgmin';
-import minify from 'gulp-htmlmin';
-import terser from 'gulp-terser';
-import del from 'del';
+import gulp from "gulp";
+import plumber from "gulp-plumber";
+import less from "gulp-less";
+import postcss from "gulp-postcss";
+import autoprefixer from "autoprefixer";
+import rename from "gulp-rename";
+import csso from "postcss-csso";
+import svgstore from "gulp-svgstore";
+import squoosh from "gulp-libsquoosh";
+import svgo from "gulp-svgmin";
+import minify from "gulp-htmlmin";
+import terser from "gulp-terser";
+import del from "del";
 import browser from "browser-sync";
 
 // Styles
 export const styles = () => {
-  return gulp.src('source/less/style.less', { sourcemaps: true })
-  .pipe(plumber())
-  .pipe(less())
-  .pipe(postcss([
-  autoprefixer(),
-  csso()
-  ]))
-  .pipe(rename('style.min.css'))
-  .pipe(gulp.dest('build/css', { sourcemaps: '.' }))
-  .pipe(browser.stream());
-}
+  return gulp
+    .src("source/less/style.less", { sourcemaps: true })
+    .pipe(plumber())
+    .pipe(less())
+    .pipe(postcss([autoprefixer(), csso()]))
+    .pipe(rename("style.min.css"))
+    .pipe(gulp.dest("build/css", { sourcemaps: "." }))
+    .pipe(browser.stream());
+};
 
 // HTML
 const html = () => {
-  return gulp.src("source/*.html")
-  .pipe(minify({collapseWhitespace: true}))
-  .pipe(gulp.dest("build"));
+  return gulp
+    .src("source/*.html")
+    .pipe(minify({ collapseWhitespace: true }))
+    .pipe(gulp.dest("build"));
 };
 
 // Scripts
@@ -70,7 +69,11 @@ const createWebp = () => {
 // SVG
 const svg = () =>
   gulp
-    .src(["source/img/*.svg", "!source/img/icons/*.svg", "!source/img/sprite.svg"])
+    .src([
+      "source/img/*.svg",
+      "!source/img/icons/*.svg",
+      "!source/img/sprite.svg",
+    ])
     .pipe(svgo())
     .pipe(gulp.dest("build/img"));
 
@@ -90,16 +93,24 @@ const sprite = () => {
 // Copy
 const copy = (done) => {
   gulp
-    .src(["source/fonts/*.{woff2,woff}", "source/*.ico",  "source/manifest.webmanifest",  "source/img/sprite.svg"], {
-      base: "source",
-    })
+    .src(
+      [
+        "source/fonts/*.{woff2,woff}",
+        "source/*.ico",
+        "source/manifest.webmanifest",
+        "source/img/sprite.svg",
+      ],
+      {
+        base: "source",
+      }
+    )
     .pipe(gulp.dest("build"));
   done();
 };
 
 // Clean
 const clean = () => {
-  return del('build');
+  return del("build");
 };
 
 // Server
@@ -133,7 +144,7 @@ export const build = gulp.series(
   clean,
   copy,
   optimizeImages,
-  gulp.parallel(styles, html, scripts, svg, sprite, createWebp),
+  gulp.parallel(styles, html, scripts, svg, sprite, createWebp)
 );
 
 // Default
